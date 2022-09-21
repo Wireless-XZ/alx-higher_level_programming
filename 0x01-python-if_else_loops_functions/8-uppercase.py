@@ -3,7 +3,7 @@ def uppercase(str):
     up_list = []
     for i in str:
         if ord(i) in range(ord("a"), ord("{")):
-           up_list.append(chr(ord(i) - 32))
+            up_list.append(chr(ord(i) - 32))
         else:
             up_list.append(i)
 

@@ -17,6 +17,11 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *dummy, *new, *last = NULL;
 
 	dummy = *head;
+	if  (dummy == NULL)
+	{
+		printf("%d\n", number);
+		return (*head);
+	}
 	while (dummy != NULL)
 	{
 		if (dummy->n >= number)

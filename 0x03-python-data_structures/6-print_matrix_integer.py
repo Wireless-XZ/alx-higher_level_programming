@@ -5,10 +5,10 @@ def print_matrix_integer(matrix=[[]]):
             x = 0
             for j in i:
                 if x < len(i) - 1:
-                    print("{}".format(j), end=" ")
+                    print("{:d}".format(j), end=" ")
                 else:
-                    print("{}".format(j))
+                    print("{:d}".format(j))
                     break;
                 x += 1
     else:
-        print("{}".format("\n"), end="")
+        print("")

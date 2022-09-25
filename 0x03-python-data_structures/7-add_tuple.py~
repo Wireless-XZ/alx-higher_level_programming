@@ -1,8 +1,0 @@
-#!/usr/bin/python3
-def add_tuple(tuple_a=(), tuple_b=()):
-    x = 0
-    while len(tuple_b) < 2:
-        list_ = list(tuple_b)
-        list_.append(0)
-        tuple_b = tuple(list_)
-    return tuple([x + y for x, y in zip(list(tuple_a), list(tuple_b))])

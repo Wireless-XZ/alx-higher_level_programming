@@ -1,4 +1,9 @@
 #!/usr/bin/python3
-from functools import reduce
 def uniq_add(my_list=[]):
-    return reduce(lambda x, y : x + y, [*set(my_list)])
+    uniq_list = []
+    result = 0
+    for i in my_list:
+        if i not in uniq_list:
+            uniq_list.append(i)
+            result += i
+    return result

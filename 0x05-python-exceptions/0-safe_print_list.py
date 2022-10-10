@@ -10,7 +10,7 @@ def safe_print_list(my_list=[], x=0):
             len += 1
             x -= 1
         print("")
-    except:
+    except SyntaxError:
         pass
 
     return len

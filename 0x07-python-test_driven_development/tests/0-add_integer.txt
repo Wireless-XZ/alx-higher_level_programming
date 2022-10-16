@@ -1,0 +1,45 @@
+The ``0-add_integer`` module
+============================
+
+``add_integer()`` returns the addition
+of two numbers
+-----------------------------
+
+Import the function from the module
+       >>> add_integer = __import__("0-add_integer").add_integer
+
+Check for positive integers
+      >>> add_integer(1, 2)
+      3
+
+Check for positive and negative integer
+      >>> add_integer(100, -2)
+      98
+
+Check for a single positive integer
+      >>> add_integer(2)
+      100
+
+Check for a float and a negative integer
+      >>> add_integer(100.3, -2)
+      98
+
+Check for integer and string
+      >>> add_integer(4, "School")
+      Traceback (most recent call last):
+      ...
+      TypeError: b must be an integer
+
+Check for None
+      >>> add_integer(None)
+      Traceback (most recent call last):
+      ...
+      TypeError: a must be an integer
+
+Check for module documentation
+      >>> print(len((__import__("0-add_integer").__doc__).splitlines()))
+      4
+
+Check for function documentation
+      >>> print((__import__("0-add_integer").add_integer.__doc__).count('\n'))
+      2

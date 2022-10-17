@@ -49,16 +49,5 @@ class Rectangle:
 
     def __str__(self):
         """prints a user friendly string"""
-        list_ = []
-        i = 0
         if self.__width != 0 and self.__height != 0:
-            while i < self.__height:
-                j = 0
-                while j < self.__width:
-                    list_.append('#')
-                    j += 1
-                list_.append('\n')
-                i += 1
-
-        list_.pop()
-        return "".join(list_)
+            return '\n'.join(['#' * self.__width for i in range(self.__height)])

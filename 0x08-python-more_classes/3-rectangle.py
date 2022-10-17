@@ -50,4 +50,6 @@ class Rectangle:
     def __str__(self):
         """prints a user friendly string"""
         if self.__width != 0 and self.__height != 0:
-            return '\n'.join(['#' * self.__width for i in range(self.__height)])
+            return '\n'.join(['#' * self.__width
+                              for i in range(self.__height)])
+        return ""

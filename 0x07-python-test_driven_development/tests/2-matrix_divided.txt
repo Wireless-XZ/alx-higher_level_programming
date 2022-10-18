@@ -37,7 +37,25 @@ Check if matrix contain non int and float values
       TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Check if matrix contains a mix of int, float and non-int and non-float types
-      >> matrix_divided([[2, "lol", 6.5], [(4, 6, 8), {"name": "xz", "age": 20}, None]], 2)
+      >>> matrix_divided([[2, "lol", 6.5], [(4, 6, 8), {"name": "xz", "age": 20}, None]], 2)
       Traceback (most recent call last):
       ...
       TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check if each row of the matrix are not the same size
+      >>> matrix_divided([[2, 4, 6], [1, 4, 6, 7]], 4)
+      Traceback (most recent call last):
+      ...
+      TypeError: Each row of the matrix must have the same size
+
+Check if div is not an int or a float
+      >>> matrix_divided([[2, 4, 6], [8, 10, 12]], "lol")
+      Traceback (most recent call last):
+      ...
+      TypeError: div must be a number
+
+Check if div is 0
+      >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 0)
+      Traceback (most recent call last):
+      ...
+      ZeroDivisionError: division by zero

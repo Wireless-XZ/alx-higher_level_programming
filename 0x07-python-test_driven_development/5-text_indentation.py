@@ -1,12 +1,23 @@
 #!/usr/bin/python3
 def text_indentation(text):
+    if type(text) is not str:
+        raise TypeError("text must be a string")
     text_list = list(text)
+    text_list.append("xz")
+    i = 0
 
-    for i in range(len(text_list)):
+    while text_list[i] is not "xz":
         if text_list[i] in ['.', '?', ':']:
-            text_list[i + 1] = '\n'
-            i += 1
+            while text_list[i + 1] == " ":
+                text_list.pop(i + 1)
+            while text_list[i - 1] == " ":
+                text_list.pop(i - 1)
+                i -= 1
             text_list.insert(i + 1, '\n')
+            text_list.insert(i + 2, '\n')
+            i += 1
+        i += 1
 
+    text_list.pop()
     for i in text_list:
         print(i, end="")

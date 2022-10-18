@@ -8,6 +8,14 @@ Prints My name is <first name> <last name>
 Import the function from the module
        >>> say_my_name = __import__("3-say_my_name").say_my_name
 
+Check for module docstring
+      >>> len(__import__("3-say_my_name").__doc__) > 1
+      True
+
+Check for function docstring
+      >>> len(say_my_name.__doc__) > 1
+      True
+
 Check for strings
       >>> say_my_name("Wireless", "XZ")
       My name is Wireless XZ

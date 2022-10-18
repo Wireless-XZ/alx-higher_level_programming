@@ -8,6 +8,14 @@ Prints a text with 2 new lines after each of these characters: ., ? and :
 Import ``text_indentation`` from module ``5-text_indentation``
        >>> text_indentation = __import__("5-text_indentation").text_indentation
 
+Check for module docstring
+      >>> len((__import__("5-text_indentation").__doc__).splitlines()) > 1
+      True
+
+Check for function docstring
+      >>> len((text_indentation.__doc__).splitlines()) > 1
+      True
+
 Check if text is string
       >>> text_indentation("Is there an end?There is no end:to the pain, stay numb. Wireless")
       Is there an end?

@@ -8,6 +8,14 @@ prints a square with the character #
 Import ``print_square`` from the module
        >>> print_square = __import__("4-print_square").print_square
 
+Check for module docsting
+      >>> len(__import__("4-print_square").__doc__) > 1
+      True
+
+Check for function docstring
+      >>> len(print_square.__doc__) > 1
+      True
+
 Check for positive int argument
       >>> print_square(4)
       ####

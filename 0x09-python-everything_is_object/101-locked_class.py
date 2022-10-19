@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+""" No module imported """
+
+
 class LockedClass:
-    """A locked class that only allows user to
-    create fitst_name attribute"""
-    __slots__ = ["first_name"]
+    """ Locked class to prevent creation of new instances """
+    __slots__ = ['first_name']
+    pass

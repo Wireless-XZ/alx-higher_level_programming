@@ -22,7 +22,7 @@ Check for strings
 
 Check for one string argument
       >>> say_my_name("Wireless")
-      My name is Wireless
+      My name is Wireless 
 
 Check for non-string arguments
       >>> say_my_name(10, True)

@@ -81,3 +81,35 @@ Check for module documentation
 Check for function documentation
       >>> len(__import__("0-add_integer").add_integer.__doc__) > 1
       True
+
+Check infinity
+      >>> add_integer(float('inf'), 1)
+      Traceback (most recent call last):
+      ...
+      TypeError: a must be an integer
+
+      >>> add_integer(2, float("inf"))
+      Traceback (most recent call last):
+      ...
+      TypeError: b must be an integer
+
+      >>> add_integer(float("-inf"), 56)
+      Traceback (most recent call last):
+      ...
+      TypeError: a must be an integer
+
+      >>> add_integer(5, float("-inf"))
+      Traceback (most recent call last):
+      ...
+      TypeError: b must be an integer
+
+Check for nan
+      >>> add_integer(float('nan'), 2)
+      Traceback (most recent call last):
+      ...
+      TypeError: a must be an integer
+
+      >>> add_integer(4, float('nan'))
+      Traceback (most recent call last):
+      ...
+      TypeError: b must be an integer

@@ -6,7 +6,7 @@ The module has one function "matrix_dividend"
 """
 
 
-def matrix_divided(matrix, div):
+def matrix_divided(matrix=[0], div="pain"):
     """
     Returns matrix[i][j] / div
     """

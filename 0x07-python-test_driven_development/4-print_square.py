@@ -5,7 +5,7 @@ Function: print_square(size)
 """
 
 
-def print_square(size):
+def print_square(size="pain"):
     """ prints a square with the character #
     """
     if type(size) is not int:

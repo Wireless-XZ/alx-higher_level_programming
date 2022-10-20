@@ -51,3 +51,9 @@ Check if size is float and less than 0
       Traceback (most recent call last):
       ...
       TypeError: size must be an integer
+
+Check if no argument passed
+      >>> print_square()
+      Traceback (most recent call last):
+      ...
+      TypeError: size must be an integer

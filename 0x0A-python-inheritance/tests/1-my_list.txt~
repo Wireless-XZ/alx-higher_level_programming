@@ -1,0 +1,16 @@
+The "1-my_list" module
+
+Import "print_sorted(self)" from "1-my_list"
+       >>> print_sorted = __import__("1-my_list").MyList.print_sorted
+
+Check for positive integers
+      >>> print_sorted([4, 1, 3, 2])
+      [1, 2, 3, 4]
+
+Check for negative integers
+      >>> print_sorted([-3, -1. -4, -2])
+      [-4, -3, -2, -1]
+
+Check for mixed integers
+      >>> print_sorted([4, 1, 3, 2, -3, -1, -4, -2])
+      [-4, -3, -2, -1, 1, 2, 3, 4]

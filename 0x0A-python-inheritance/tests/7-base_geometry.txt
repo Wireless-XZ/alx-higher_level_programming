@@ -1,0 +1,23 @@
+The "7-base_geometry" module
+
+Import BaseGeometry from "7-base_geometry" module
+       >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+Create a class object
+       >>> x = BaseGeometry()
+
+Check for name not an integer
+      >>> x.integer_validator("name", "John")
+      Traceback (most recent call last):
+      ...
+      TypeError: name must be an integer
+
+Check for int greater than or equal to 0
+      >>> x.integer_validator("age", 0)
+      Traceback (most recent call last):
+      ...
+      ValueError: age must be greater than 0
+      >>> x.integer_validator("distance", -4)
+      Traceback (most recent call last):
+      ...
+      ValueError: distance must be greater than 0

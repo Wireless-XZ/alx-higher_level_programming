@@ -21,3 +21,9 @@ Check for int greater than or equal to 0
       Traceback (most recent call last):
       ...
       ValueError: distance must be greater than 0
+
+Check for def area(self)
+      >>> x.area()
+      Traceback (most recent call last):
+      ...
+      Exception: area() is not implemented

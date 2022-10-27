@@ -1,9 +1,0 @@
-#!/usr/bin/python3
-""" The "100-my_int" module
-"""
-
-
-class MyInt(int):
-    """ Representation of MyInt class
-    """
-    

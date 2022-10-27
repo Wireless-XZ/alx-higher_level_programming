@@ -5,7 +5,7 @@
 
 def add_attribute(obj, key, value):
     """ adds an attribute to an object """
-    if key not in (obj.__dict__).keys():
+    if hasattr(obj, "__dict__"):
         (obj.__dict__)[key] = value
     else:
         raise TypeError("can't add new atrribute")

@@ -1,0 +1,81 @@
+#!/usr/bin/python3
+""" The `square` module
+"""
+
+from models.rectangle import Rectangle
+
+
+class Square(Rectangle):
+    """ A sub-class of Rectangle
+    """
+    def __init__(self, size, x=0, y=0, id=None):
+        """ initializes athe Quare class
+        """
+        super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """ human friendly string 
+        """
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.height)
+        
+    @property
+    def size(self):
+        """ getter for size
+        """
+        return self.height
+
+    @size.setter
+    def size(self, value):
+        """ setter for size
+        """
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.width = value
+        self.height = value
+
+    def update(self, *args, **kwargs):
+        """ Assigns values to class attributes
+        """
+        attr_list = ['id', 'size', 'x', 'y']
+        z = 0
+
+        if args is not None and len(args) != 0:
+            for i in range(z, len(args)):
+                if attr_list[z] == 'size':
+                    setattr(self, 'width', args[z])
+                    setattr(self, 'height', args[z])
+                else:
+                    setattr(self, attr_list[z], args[z])
+                z += 1
+        elif kwargs is not None and len(kwargs) != 0:
+            for key in kwargs:
+                for i in attr_list:
+                    if i == key:
+                        if i == 'size':
+                            setattr(self, 'width', kwargs[key])
+                            setattr(self, 'height', kwargs[key])
+                        else:
+                            setattr(self, key, kwargs[key])
+                        break
+
+    def to_dictionary(self):
+        """ returns the dictionary representation of a Rectangle
+        """
+        attr_list = ['id', 'size', 'x', 'y']
+        attr_dict = {}
+        for att in attr_list:
+            for key in self.__dict__:
+                if att == 'id':
+                    attr_dict[att] = (self.__dict__)[att]
+                    break
+                elif att == 'size':
+                    attr_dict[att] = (self.__dict__)['_Rectangle__width']
+                    break
+                attr = '_Rectangle__' + att
+                if key == attr:
+                    attr_dict[att] = (self.__dict__)[key]
+                    break
+        return attr_dict

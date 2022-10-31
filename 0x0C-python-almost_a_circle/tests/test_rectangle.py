@@ -19,7 +19,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_varying_args(self):
         """ Checks for varying args passed """
-        self.assertEqual(Rectangle(3, 5).id, 1)
-        self.assertEqual(Rectangle(3, 5, 7).id, 2)
-        self.assertEqual(Rectangle(3, 5, 9, 2).id, 3)
+        self.assertEqual(Rectangle(3, 5).id, 4)
+        self.assertEqual(Rectangle(3, 5, 7).id, 5)
+        self.assertEqual(Rectangle(3, 5, 9, 2).id, 6)
         self.assertEqual(Rectangle(3, 5, 5, 6, 26).id, 26)

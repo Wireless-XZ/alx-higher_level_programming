@@ -3,6 +3,8 @@
 """
 
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -74,3 +76,68 @@ class Base:
                 return list_instances
         except:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ csv serialization
+        """
+        filename = cls.__name__ + ".csv"
+        content = []
+        
+        if list_objs is not None:
+            for i in range(len(list_objs)):
+                content.append(cls.to_dictionary(list_objs[i]))
+            
+        with open(filename, mode='w', encoding="utf-8") as f:
+            if cls.__name__ == 'Rectangle':
+                field_name = ["id", "width", "height", "x", "y"]
+            if cls.__name__ == 'Square':
+                field_name = ["id", "size", "x", "y"]
+            w = csv.DictWriter(f, fieldnames=field_name)
+            w.writeheader()
+            w.writerows(content)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ returns a list of instances
+        """
+        filename = cls.__name__ + ".csv"
+        str_to_int = []
+        try:
+            with open(filename, mode='r', encoding="utf-8") as f:
+                r = csv.DictReader(f)
+                for row in r:
+                    for key in row:
+                        row[key] = int(row[key])
+                    str_to_int.append(row) 
+                list_instances = []
+                for inst in str_to_int:
+                    list_instances.append(cls.create(**inst))
+                return list_instances
+        except:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ opens a window and draws all the Rectangles and Squares
+        """
+        
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ opens a window and draws all the Rectangles and Squares
+        """
+        lol = turtle.Turtle()
+
+        for rect in list_rectangles:
+            for i in range(2):
+                lol.foward(rect.width)
+                lol.left(90)
+                lol.foward(rect.height)
+                lol.left(90)
+            lol.penup()
+            lol.foward(5)
+            lol.pendown()
+
+        turtle.done()
+            
+            

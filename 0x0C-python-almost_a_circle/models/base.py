@@ -4,7 +4,6 @@
 
 import json
 import csv
-import turtle
 
 
 class Base:
@@ -28,7 +27,7 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return []
         return json.dumps(list_dictionaries)
-            
+
     @classmethod
     def save_to_file(cls, list_objs):
         """ writes the JSON string representation of list_objs to a file
@@ -41,7 +40,7 @@ class Base:
                 content.append(cls.to_dictionary(list_objs[i]))
 
         with open(filename, mode='w', encoding="utf-8") as f:
-                f.write(cls.to_json_string(content))
+            f.write(cls.to_json_string(content))
 
     @staticmethod
     def from_json_string(json_string):
@@ -74,7 +73,7 @@ class Base:
                 for inst in x:
                     list_instances.append(cls.create(**inst))
                 return list_instances
-        except:
+        except Exception:
             return []
 
     @classmethod
@@ -83,11 +82,11 @@ class Base:
         """
         filename = cls.__name__ + ".csv"
         content = []
-        
+
         if list_objs is not None:
             for i in range(len(list_objs)):
                 content.append(cls.to_dictionary(list_objs[i]))
-            
+
         with open(filename, mode='w', encoding="utf-8") as f:
             if cls.__name__ == 'Rectangle':
                 field_name = ["id", "width", "height", "x", "y"]
@@ -109,35 +108,15 @@ class Base:
                 for row in r:
                     for key in row:
                         row[key] = int(row[key])
-                    str_to_int.append(row) 
+                    str_to_int.append(row)
                 list_instances = []
                 for inst in str_to_int:
                     list_instances.append(cls.create(**inst))
                 return list_instances
-        except:
+        except Exception:
             return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
         """ opens a window and draws all the Rectangles and Squares
         """
-        
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """ opens a window and draws all the Rectangles and Squares
-        """
-        lol = turtle.Turtle()
-
-        for rect in list_rectangles:
-            for i in range(2):
-                lol.foward(rect.width)
-                lol.left(90)
-                lol.foward(rect.height)
-                lol.left(90)
-            lol.penup()
-            lol.foward(5)
-            lol.pendown()
-
-        turtle.done()
-            
-            

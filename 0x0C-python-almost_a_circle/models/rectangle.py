@@ -41,7 +41,7 @@ class Rectangle(Base):
     def height(self):
         """ Getter for height """
         return self.__height
-        
+
     @height.setter
     def height(self, value):
         """ Setter for height """
@@ -50,7 +50,7 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
-        
+
     @property
     def x(self):
         """ Getter for x """
@@ -99,12 +99,11 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
-
     def update(self, *args, **kwargs):
         """ assigns argument to each attribute """
         attr_list = ['id', 'width', 'height', 'x', 'y']
         z = 0
-        
+
         if args is not None and len(args) != 0:
             for i in range(z, len(args)):
                 setattr(self, attr_list[z], args[z])
@@ -115,7 +114,7 @@ class Rectangle(Base):
                     if i == key:
                         setattr(self, key, kwargs[key])
                         break
-                
+
     def to_dictionary(self):
         """ returns the dictionary representation of a Rectangle
         """

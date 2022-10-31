@@ -65,5 +65,12 @@ class Base:
         """ returns a list of instances
         """
         filename = cls.__name__ + ".json"
-        with open(filename, mode='r', encoding="utf-8") as f:
-            f.load()
+        try:
+            with open(filename, mode='r', encoding="utf-8") as f:
+                x = cls.from_json_string(f.read())
+                list_instances = []
+                for inst in x:
+                    list_instances.append(cls.create(**inst))
+                return list_instances
+        except:
+            return []

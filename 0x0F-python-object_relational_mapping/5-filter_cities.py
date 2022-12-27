@@ -18,8 +18,11 @@ if __name__ == "__main__":
 
     query_rows = cur.fetchall()
 
-    for row in query_rows:
-        if query_rows.index(row) != len(query_rows) - 1:
-            print(row[0], end=", ")
-        else:
-            print(row[0])
+    if len(query_rows) == 0:
+        print()
+    else:
+        for row in query_rows:
+            if query_rows.index(row) != len(query_rows) - 1:
+                print(row[0], end=", ")
+            else:
+                print(row[0])
